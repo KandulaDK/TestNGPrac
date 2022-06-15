@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -34,10 +35,11 @@ public class google {
 		driver.get("https://www.google.com");
 	}
 
+	@Parameters({"url"})
 	@Test()
-	public void enterTheSearch() throws InterruptedException {
+	public void enterTheSearch(String url) throws InterruptedException {
 		
-		driver.get("https://www.google.com");
+		driver.get(url);
 		Actions a = new Actions(driver);
 		driver.findElement(By.xpath("//input[@title='Search']")).sendKeys("dinesh Kumar kandula", Keys.ENTER);
 //		driver.findElement(By.xpath("//h3[normalize-space()='dinesh-kumar-kandula Profiles - Facebook']")).click();

@@ -26,6 +26,7 @@
 	</test>
 
 	<test thread-count="5" name="Google">
+	<parameter name="url" value="https://www.google.com" ></parameter>
 		<classes>
 			<class name="TestNGBasic.google">
 				<methods>

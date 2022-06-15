@@ -1,20 +1,27 @@
 package TestNGBasic;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
+
+import org.apache.commons.io.FileUtils;
 import org.com.testBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Factory;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class implicity {
 	WebDriver driver;
+	public int i = 0;
 
 	public implicity() throws IOException {
 		testBase tb = new testBase();
@@ -51,6 +58,15 @@ public class implicity {
 		driver.findElement(By.id("tp-sign-in")).click();
 
 		Assert.assertTrue(driver.findElement(By.id("tp-message-error")).isDisplayed());
+		i++;
+		TakesScreenshot tss = ((TakesScreenshot) driver);
+		File src = tss.getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(src, new File(System.getProperty("user.dir") + "\\org.TestNGHYR\\target/iffailed"+i+".png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 	}
 	
 	@DataProvider(name="loginData")
@@ -75,6 +91,7 @@ public class implicity {
 		
 		return data;
 	}
+	
 	
 	
 	@AfterClass

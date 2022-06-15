@@ -1,49 +1,34 @@
 package TestNGBasic;
 
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.AfterSuite;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class NewTest {
-  @Test
-  public void f() {
-  }
-  @BeforeMethod
-  public void beforeMethod() {
-  }
 
-  @AfterMethod
-  public void afterMethod() {
-  }
+	public static void main(String[] args) {
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.facebook.com/login");
+		
+//		id - document.getElementById('email');
+//		name - document.getElementsByName('email')[0];
+//		classname - document.getElementsByClassName("inputtext")[0];
+//		tagName - document.getElementsByTagName('input')[13];
+		
+//		css selector - document.querySelector('#email');
+//		xpath- document.evaluate(XpathExpression, contextNode, namespaceresolver, resultType, result).singleNodeValue;
+//		document.evalute("//input[@id='email']",document,null,xpathResult.FIRST_ORDERED-NODE-TYPE,null).singleNodeValue;
+		
+		JavascriptExecutor jsEx = (JavascriptExecutor) driver;
+		WebElement el = (WebElement) jsEx.executeScript("return document.getElementById('email');");
+		el.sendKeys("dineshkumar007");
+		
+	} 
 
-  @BeforeClass
-  public void beforeClass() {
-  }
-
-  @AfterClass
-  public void afterClass() {
-  }
-
-  @BeforeTest
-  public void beforeTest() {
-  }
-
-  @AfterTest
-  public void afterTest() {
-  }
-
-  @BeforeSuite
-  public void beforeSuite() {
-  }
-
-  @AfterSuite
-  public void afterSuite() {
-  }
 
 }
