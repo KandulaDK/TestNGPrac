@@ -20,10 +20,12 @@ public class class1 {
 	public void initilizeBrowser() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		System.out.println("Class1 initiated...");
 	}
 	
 	@AfterClass
 	public void exitTheBrowser() {
+		System.out.println("......Class1 Ended");
 		driver.quit();
 	}
 	@Test
@@ -32,7 +34,7 @@ public class class1 {
 		System.out.println(Thread.currentThread().getId());
 	}
 	
-	@Test
+	@Test(dependsOnMethods = "LaunchApp")
 	public void EnterLoginDetails() {
 		driver.findElement(By.id("txtUsername")).sendKeys("Admin");
 		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
@@ -40,19 +42,19 @@ public class class1 {
 		System.out.println(Thread.currentThread().getId());
 	}
 	
-	@Test
+	@Test(dependsOnMethods = "VerifyLogin")
 	public void NavigateToMyInfo() {
 		driver.findElement(By.id("menu_pim_viewMyDetails")).click();
 		System.out.println(Thread.currentThread().getId());
 	}
-	
-	@Test
+	 
+	@Test (dependsOnMethods = "NavigateToMyInfo")
 	public void VerifyMyInfo() {
 		System.out.println(driver.findElement(By.id("employee-details")).isDisplayed());
 		System.out.println(Thread.currentThread().getId());
 	}
 	
-	@Test
+	@Test(dependsOnMethods = "EnterLoginDetails")
 	public void VerifyLogin() {
 		WebElement element = driver.findElement(By.id("welcome"));
 		System.out.println(element.isDisplayed());
