@@ -5,24 +5,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
-import static org.testng.Assert.*;
-
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class google {
 
 	public WebDriver driver;
+	Date startTime;
+	Date endTime;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 	
 	public google() throws IOException {
 		testBase tb = new testBase();
@@ -32,12 +33,17 @@ public class google {
 
 	@BeforeClass   
 	public void openGoogle() {
+		sdf.setTimeZone(TimeZone.getTimeZone("IST"));
+		startTime = new Date();
+		String startDateTime = sdf.format(startTime);
+		System.out.println("Start Date Time: "+startDateTime);
+		
 		driver.get("https://www.google.com");
 	}
 
 	@Parameters({"url"})
-	@Test()
-	public void enterTheSearch(String url) throws InterruptedException {
+	@Test(priority = 20)
+	public void enterTheSearch(@Optional("https://www.google.com") String url) throws InterruptedException {
 		
 		driver.get(url);
 		Actions a = new Actions(driver);
@@ -65,6 +71,18 @@ public class google {
 	}
 	@AfterClass
 	public void tearDown() {
-		driver.quit();
+		try{
+			driver.quit();
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		sdf.setTimeZone(TimeZone.getTimeZone("IST"));
+		endTime = new Date();
+		String endDateTime = sdf.format(endTime);
+		System.out.println("End Date Time: "+endDateTime);
+		
+		long diff = (endTime.getTime()-startTime.getTime())/1000;
+		String executionTime = String.valueOf(diff/60) + " Min " + String.valueOf(diff%60) + " Sec";
+		System.out.println("Execution Time: " +executionTime);
 	}
 }

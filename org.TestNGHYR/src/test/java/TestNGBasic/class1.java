@@ -54,7 +54,7 @@ public class class1 {
 		System.out.println(Thread.currentThread().getId());
 	}
 	
-	@Test(dependsOnMethods = "EnterLoginDetails")
+	@Test(dependsOnMethods = {"EnterLoginDetails"})
 	public void VerifyLogin() {
 		WebElement element = driver.findElement(By.id("welcome"));
 		System.out.println(element.isDisplayed());

@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestNGBasic.implicity">
+      <class name="TestNGBasic.google">
         <methods>
-          <include name="enterTheInput"/>
-          <include name="clickLogin"/>
-          <include name="openPage"/>
+          <include name="enterTheSearch"/>
+          <include name="openGoogle"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- TestNGBasic.implicity -->
+      </class> <!-- TestNGBasic.google -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

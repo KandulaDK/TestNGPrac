@@ -14,21 +14,21 @@ public class TestRunner {
 	}
 	
 	void triggerTestCase(String testCase){
-		class1 c = new class1();
+//		class1 c = new class1();
 		TestNG testNG = new TestNG();
 		List<String> suites = new ArrayList<String>();
-		Class[] clas = new Class[1];      //{c.getClass()};
+//		Class[] clas = new Class[1];      //{c.getClass()};
 //		"./src/test/java/TestNGBasic/class1.java";
 		
-		clas[0]= (c.getClass());
+//		clas[0]= (c.getClass());
 	
 		
 		suites.add(testCase);
-//		suites.add("./testng.xml");
+		suites.add("./testng.xml");
 		
-		testNG.setTestClasses(clas);
+//		testNG.setTestClasses(clas);
 
-//		testNG.setTestSuites(suites);
+		testNG.setTestSuites(suites);
 		testNG.run();
 		
 	}
