@@ -1,32 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-26T14:56:18 IST" name="Default suite" finished-at="2022-06-26T14:56:39 IST" duration-ms="20873">
+  <suite started-at="2022-07-12T12:59:25 IST" name="Default suite" finished-at="2022-07-12T12:59:41 IST" duration-ms="15784">
     <groups>
     </groups>
-    <test started-at="2022-06-26T14:56:18 IST" name="Default test" finished-at="2022-06-26T14:56:39 IST" duration-ms="20873">
-      <class name="TestNGBasic.google">
-        <test-method is-config="true" signature="openGoogle()[pri:0, instance:TestNGBasic.google@5477a1ca]" started-at="2022-06-26T14:56:19 IST" name="openGoogle" finished-at="2022-06-26T14:56:20 IST" duration-ms="1722" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openGoogle -->
-        <test-method signature="enterTheSearch(java.lang.String)[pri:0, instance:TestNGBasic.google@5477a1ca]" started-at="2022-06-26T14:56:20 IST" name="enterTheSearch" finished-at="2022-06-26T14:56:39 IST" duration-ms="18716" status="PASS">
+    <test started-at="2022-07-12T12:59:25 IST" name="Default test" finished-at="2022-07-12T12:59:41 IST" duration-ms="15784">
+      <class name="TestNGBasic.implicity">
+        <test-method is-config="true" signature="openPage(java.lang.String,java.lang.String)[pri:0, instance:TestNGBasic.implicity@3382f8ae]" started-at="2022-07-12T12:59:25 IST" name="openPage" finished-at="2022-07-12T12:59:28 IST" duration-ms="3072" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[https://www.google.com]]>
+                <![CDATA[https://testproject.io/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[true]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- enterTheSearch -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestNGBasic.google@5477a1ca]" started-at="2022-06-26T14:56:39 IST" name="tearDown" finished-at="2022-06-26T14:56:39 IST" duration-ms="387" status="PASS">
+        </test-method> <!-- openPage -->
+        <test-method signature="clickLogin()[pri:0, instance:TestNGBasic.implicity@3382f8ae]" started-at="2022-07-12T12:59:28 IST" name="clickLogin" finished-at="2022-07-12T12:59:28 IST" duration-ms="419" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickLogin -->
+        <test-method signature="enterTheInput(java.lang.String,java.lang.String)[pri:0, instance:TestNGBasic.implicity@3382f8ae]" started-at="2022-07-12T12:59:28 IST" name="enterTheInput" data-provider="loginData" finished-at="2022-07-12T12:59:34 IST" duration-ms="5818" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[dineshkumarkandula@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dinnu1234@]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enterTheInput -->
+        <test-method signature="enterTheInput(java.lang.String,java.lang.String)[pri:0, instance:TestNGBasic.implicity@3382f8ae]" started-at="2022-07-12T12:59:34 IST" name="enterTheInput" data-provider="loginData" finished-at="2022-07-12T12:59:37 IST" duration-ms="3078" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[kumarakandula@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[kumar@1233]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enterTheInput -->
+        <test-method signature="enterTheInput(java.lang.String,java.lang.String)[pri:0, instance:TestNGBasic.implicity@3382f8ae]" started-at="2022-07-12T12:59:37 IST" name="enterTheInput" data-provider="loginData" finished-at="2022-07-12T12:59:40 IST" duration-ms="3093" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[kanduladinesh@wsgc.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[williamsSonama]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enterTheInput -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestNGBasic.implicity@3382f8ae]" started-at="2022-07-12T12:59:40 IST" name="tearDown" finished-at="2022-07-12T12:59:41 IST" duration-ms="248" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- TestNGBasic.google -->
+      </class> <!-- TestNGBasic.implicity -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

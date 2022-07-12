@@ -16,42 +16,32 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Factory;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class implicity {
+public class implicity extends testBase{
 	WebDriver driver;
 	public int i = 0;
 
-	public implicity() throws IOException {
-		testBase tb = new testBase();
-		this.driver = tb.webDriverManager();
-	}
-
+	
 	@Parameters({ "url", "status" })
 	@BeforeClass
-	public void openPage(String url, String status) {
+	public void openPage(@Optional("https://testproject.io/")String url, @Optional("true") String status) throws IOException {
+		driver = getAutomationProperties();
 		driver.get(url);
 		System.out.println(status);
 	}
 
-	@Test(timeOut = 20000)
-	public void clickLogin() throws InterruptedException {
+	@Test(dataProvider="loginData")
+	public void enterTheInput(String username, String pswd) throws InterruptedException {
 		driver.findElement(By.linkText("Login")).click();
 		Set<String> aw = driver.getWindowHandles();
 		Iterator<String> it = aw.iterator();
 		String parent = it.next();
 		String child = it.next();
 		driver.switchTo().window(child);
-//		WebDriverWait wb = new WebDriverWait(driver, Duration.ofSeconds(8));
-//		wb.until(ExpectedConditions.)));
-
-	}
-
-//	@Parameters({ "username", "password" })
-	@Test(dataProvider="loginData")
-	public void enterTheInput(String username, String pswd) throws InterruptedException {
-		// System.out.println(driver.findElement(By.id("tp-message-error")).isDisplayed());
+		driver.navigate().refresh();
 		driver.findElement(By.id("username")).sendKeys(username);
 		driver.findElement(By.id("password")).sendKeys(pswd);
 		Thread.sleep(2000);
@@ -91,8 +81,6 @@ public class implicity {
 		
 		return data;
 	}
-	
-	
 	
 	@AfterClass
 	public void tearDown() {

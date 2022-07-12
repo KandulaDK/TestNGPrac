@@ -18,26 +18,23 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class google {
+public class google extends testBase{
 
 	public WebDriver driver;
 	Date startTime;
 	Date endTime;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 	
-	public google() throws IOException {
-		testBase tb = new testBase();
-		this.driver = tb.webDriverManager();
-	}
-
+	
 
 	@BeforeClass   
-	public void openGoogle() {
+	public void openGoogle() throws IOException {
+		driver = getAutomationProperties();
 		sdf.setTimeZone(TimeZone.getTimeZone("IST"));
 		startTime = new Date();
 		String startDateTime = sdf.format(startTime);
 		System.out.println("Start Date Time: "+startDateTime);
-		
+		driver.manage().window().maximize();
 		driver.get("https://www.google.com");
 	}
 
