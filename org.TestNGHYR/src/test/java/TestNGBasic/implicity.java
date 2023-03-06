@@ -31,16 +31,17 @@ public class implicity extends testBase{
 		driver = getAutomationProperties();
 		driver.get(url);
 		System.out.println(status);
-	}
-
-	@Test(dataProvider="loginData")
-	public void enterTheInput(String username, String pswd) throws InterruptedException {
 		driver.findElement(By.linkText("Login")).click();
 		Set<String> aw = driver.getWindowHandles();
 		Iterator<String> it = aw.iterator();
 		String parent = it.next();
 		String child = it.next();
 		driver.switchTo().window(child);
+	}
+
+	@Test(dataProvider="loginData")
+	public void enterTheInput(String username, String pswd) throws InterruptedException {
+		
 		driver.navigate().refresh();
 		driver.findElement(By.id("username")).sendKeys(username);
 		driver.findElement(By.id("password")).sendKeys(pswd);

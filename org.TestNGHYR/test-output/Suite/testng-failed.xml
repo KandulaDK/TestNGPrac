@@ -10,7 +10,7 @@
     <classes>
       <class name="TestNGBasic.implicity">
         <methods>
-          <include name="enterTheInput" invocation-numbers="0 1 2"/>
+          <include name="enterTheInput" invocation-numbers="1 2"/>
           <include name="openPage"/>
           <include name="tearDown"/>
         </methods>

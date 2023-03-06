@@ -46,13 +46,13 @@ public class google extends testBase{
 		Actions a = new Actions(driver);
 		driver.findElement(By.xpath("//input[@title='Search']")).sendKeys("dinesh Kumar kandula", Keys.ENTER);
 //		driver.findElement(By.xpath("//h3[normalize-space()='dinesh-kumar-kandula Profiles - Facebook']")).click();
-		driver.findElement(By.xpath("(//h3[text()='Dinesh Kumar kandula - YouTube'])[1]")).click();
+		driver.findElement(By.xpath("//h3[text()='Dinesh Kumar kandula - YouTube']")).click();
 		Thread.sleep(3000);
 		List<WebElement> videoTitle = driver.findElements(By.id("video-title"));
 
 		for (WebElement title : videoTitle) {
 //			System.out.println(title.getAttribute("title"));
-			if (title.getAttribute("title").equals("Kannanule kalalalu in Tamil cute girl sings")) {
+			if (title.getAttribute("title").equalsIgnoreCase("i wanna fly wanna fly ft.pubg")) {
 				title.click();
 				break;
 			}
